@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MARLANA TASK</title>
+    <link rel="stylesheet" type="text/css" href="css/dropstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/dizel.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="header_small">
+                <div class="header_menu">
+                </div>
+            </div>
+            <div class="header_big">
+                <p class="fs_2_5vw">MARLANA TASK</p>
+            </div>
+        </div>
+        <div class="mainbody">
+            @RenderBody()
+        </div>
+        <div class="footer">
+            <div class="footer_name">
+                <p class="fs_1vw">2022 Marlana DOKERcom</p>
+            </div>
+        </div>
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

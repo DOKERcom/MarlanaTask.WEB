@@ -1,0 +1,133 @@
+﻿@using MarlanaTask.API.Models
+
+@model TasksBlockViewModel
+
+<link rel="stylesheet" type="text/css" href="css/cabinet.css">
+
+<link rel="stylesheet" type="text/css" href="css/modal_window.css">
+
+<link rel="stylesheet" type="text/css" href="css/border.css">
+
+<link rel="stylesheet" type="text/css" href="css/edit_popup.css">
+
+<link rel="stylesheet" type="text/css" href="css/info_popup.css">
+
+<div class="maintenance">
+    <div class="users_board">
+        <div class="users_board_box">
+            <div>
+                <div>
+                    <div class="user_info_popup">
+                        <div class="user_info_popup_box">
+                            <div class="user_info">
+                                <div class="header_name">
+                                    <p>BLOCK INFO</p>
+                                </div>
+                                <div class="user_info_box">
+                                    <div class="info_box">
+                                        <div class="box_inside">
+                                            <div class="_userinfo">
+                                                <p>Block Name</p>
+                                            </div>
+                                            <div id="userinfo_username_id" class="userinfo">
+                                                <p>@Model.name</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user_lessons">
+                                <div class="board_createuser">
+                                    <div class="change_blocks">
+                                        <div class="change_block">
+                                            <div class="submit_button">
+                                                <input id="createTaskModal" type="submit" value="Add New Task">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="users_board">
+                                    <div class="users_board_box">
+                                        <div class="board_box_header">
+                                            <div class="boarded_name">
+                                                <p>BLOCK'S TASKS BOARD</p>
+                                            </div>
+                                        </div>
+                                        <div class="board_list_info">
+                                            <li class="list_li_box naming">
+                                                <div class="user_name"> <p>Task name</p> </div>
+                                                <div class="user_gap"></div>
+                                                <div class="user_gap"></div>
+                                                <div class="user_reg"> <p>Ready / Not Ready Task</p> </div>
+                                            </li>
+                                            <ul class="list_ul" id="list_ul_lessons_id">
+                                                @{
+                                                    @foreach (var task in @Model.tasks) 
+                                                    {
+                                                        <li class="list_li_box">
+                                                            <div class="user_name"> <p>@task.name</p> </div>
+                                                            <div class="user_role"></div>
+                                                            <div class="user_gap"></div>
+                                                            <div class="user_buttons" id="block_buttons_@(task.name)_id">
+                                                                @if(task.status == true)
+                                                                {
+                                                                    <input onclick="ChangeTaskStatus('@task.name', 'false')" type="checkbox" checked>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <input onclick="ChangeTaskStatus('@task.name', 'true')" type="checkbox">
+                                                                }
+                                                                <input onclick="DeleteTask('@task.name')" id="id_model_+@task.name+_deletetask" type="submit" value="❌"> 
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="_createTaskModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div id="close_createTaskModal" class="close">&times;</div>
+            <h2>Creating Task: </h2>
+        </div>
+        <div class="modal-body">
+            <div class="user_edit_popup">
+                <div class="edit_popup_box">
+                    <div></div>
+                    <div class="change_blocks">
+                        <div class="change_block">
+                            <div class="input_block">
+                                <label for="CreateTaskName">Task name:</label>
+                                <input id="CreateTaskName" name="CreateTaskName" maxlength="25" type="text">
+                            </div>
+                            <div class="input_block">
+                                <label for="CreateTaskStatus">Status:</label>
+                                <select id="CreateTaskStatus" name="CreateTaskStatus">
+                                    <option value="false">false</option>
+                                    <option value="true">true</option>
+                                </select>
+                            </div>
+                            <div class="submit_button">
+                                <input onclick="CreateTask('@(Model.name)', document.getElementById('CreateTaskName').value, document.getElementById('CreateTaskStatus').value)" type="submit" value="Create Task">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/modal_window.js"></script>
+<script type="text/javascript" src="js/tasksblock.js"></script>

@@ -1,0 +1,119 @@
+﻿@using System.Text
+@using MarlanaTask.WEB.ViewModels
+
+@model MainViewModel
+
+<link rel="stylesheet" type="text/css" href="css/cabinet.css">
+
+<link rel="stylesheet" type="text/css" href="css/modal_window.css">
+
+<link rel="stylesheet" type="text/css" href="css/border.css">
+
+<link rel="stylesheet" type="text/css" href="css/edit_popup.css">
+
+<link rel="stylesheet" type="text/css" href="css/info_popup.css">
+
+<div class="maintenance">
+    <div class="users_board">
+        <div class="users_board_box">
+            <div class="board_box_header">
+                <div class="board_name">
+                    <p>TASKS BLOCKS BOARD</p>
+                </div>
+            </div>
+            <div class="board_createuser">
+                <div class="change_blocks">
+                    <div class="change_block">
+                        <div class="submit_button">
+                            <input id="createBlockModal" type="submit" value="Create Block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="board_list">
+                <li class="list_li_box naming">
+                    <div class="user_name"> <p>Block Name</p> </div>
+                    <div class="user_gap"></div>
+                    <div class="user_gap"></div>
+                    <div class="user_gap"></div>
+                </li>
+                <ul class="list_ul">
+                    @{
+                        @foreach(var block in Model.tasksBlockViewModels)
+                        {
+                            <li class="list_li_box">
+                                <div class="user_name"> <p>@block.name</p> </div>
+                                <input id="boardBlockName" maxlength="25" type="text" name="BoardBlockName" value="@block.name" hidden disabled>
+                                <div class="user_gap"></div>
+                                <div class="user_gap"></div>
+                                <div class="user_buttons">
+                                    <input onclick="EditBlockModal('@block.name')" id="editBlockModal" type="submit" value="📝">
+                                    <a href="/TasksBlock?name=@block.name" target="_blank"><input  id="checkBlockModal" type="submit" value="🔎"></a>
+                                    <input onclick="DeleteBlock('@block.name')" id="deleteBlock" type="submit" value="❌">
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="_createBlockModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div id="close_createBlockModal" class="close">&times;</div>
+            <h2>Creating Block: </h2>
+        </div>
+        <div class="modal-body">
+            <div class="user_edit_popup">
+                <div class="edit_popup_box">
+                    <div></div>
+                    <div class="change_blocks">
+                        <div class="change_block">
+                            <div class="input_block">
+                                <label for="CreateBlockName">Block name:</label>
+                                <input id="CreateBlockName" name="CreateBlockName" maxlength="25" type="text">
+                            </div>
+                            <div class="submit_button">
+                                <input onclick="CreateBlock(document.getElementById('CreateBlockName').value)" type="submit" value="Create Block">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="_editBlockModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header" id="edit_header_name_id">
+            <div id="close_editBlockModal" class="close">&times;</div>
+
+        </div>
+        <div class="modal-body">
+            <div class="user_edit_popup">
+                <div class="edit_popup_box">
+                    <div></div>
+                    <div class="change_blocks">
+                        <div class="change_block">
+                            <div class="input_block">
+                                <label for="ChangeBlockName">Block new name:</label>
+                                <input id="ChangeBlockName" name="ChangeBlockName" maxlength="25" type="text">
+                            </div>
+                            <div class="submit_button" id="editBlockModal_submit_button">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="js/modal_window.js"></script>
+<script type="text/javascript" src="js/main.js"></script>

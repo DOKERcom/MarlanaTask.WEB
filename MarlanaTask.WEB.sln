@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarlanaTask.WEB", "MarlanaTask.WEB\MarlanaTask.WEB.csproj", "{F88B7611-780B-4EE5-B717-25231EDD07BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F88B7611-780B-4EE5-B717-25231EDD07BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88B7611-780B-4EE5-B717-25231EDD07BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88B7611-780B-4EE5-B717-25231EDD07BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88B7611-780B-4EE5-B717-25231EDD07BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28659DE4-3EDA-4864-9C5C-B9C4211B4D7C}
+	EndGlobalSection
+EndGlobal
